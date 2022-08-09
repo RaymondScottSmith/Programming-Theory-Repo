@@ -11,17 +11,19 @@ public class Runner : MonoBehaviour
     protected Rigidbody myRigidbody;
     protected Animator runnerAnim;
 
-    protected AudioSource runnerAudio;
+    public AudioSource runnerAudio;
 
     protected float prepareDistance;
     
     public bool isOnGround = true;
 
     public float baseSpeed = 5f;
+
     // Start is called before the first frame update
 
     protected void Jump()
     {
+        runnerAudio.PlayOneShot(runnerAudio.clip);
         //myRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         myRigidbody.velocity = Vector3.up * jumpForce;
         isOnGround = false;
@@ -55,8 +57,9 @@ public class Runner : MonoBehaviour
             //playerAudio.PlayOneShot(crashSound, 1.0f);
             //dirtParticle.Stop();
             //explosionParticle.Play();
-            GameManager.Instance.isGameOver = true;
-            Debug.Log("Game Over!");
+            GameManager.Instance.GameOver();
+            Destroy(gameObject);
+            //Debug.Log("Game Over!");
             //playerAnim.SetBool(DeathB, true);
             //playerAnim.SetInteger(DeathTypeINT, 1);
         }

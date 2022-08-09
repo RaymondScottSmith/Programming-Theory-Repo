@@ -5,7 +5,7 @@ using UnityEngine;
 public class Buck : Runner
 {
 
-    private float m_JumpAgainDelay = 0.5f;
+    private float m_JumpAgainDelay = 0.25f;
 
     public float jumpAgainDelay
     {
@@ -49,8 +49,8 @@ public class Buck : Runner
                 Destroy(collision.gameObject);
                 return;
             }
-            GameManager.Instance.isGameOver = true;
-            Debug.Log("Game Over!");
+            GameManager.Instance.GameOver();
+            Destroy(gameObject);
             //playerAnim.SetBool(DeathB, true);
             //playerAnim.SetInteger(DeathTypeINT, 1);
         }

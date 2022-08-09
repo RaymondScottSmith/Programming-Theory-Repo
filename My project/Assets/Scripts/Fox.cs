@@ -31,7 +31,8 @@ public class Fox : Runner
             //playerAudio.PlayOneShot(crashSound, 1.0f);
             //dirtParticle.Stop();
             //explosionParticle.Play();
-            GameManager.Instance.isGameOver = true;
+            GameManager.Instance.GameOver();
+            Destroy(gameObject);
             Debug.Log("Game Over!");
             //playerAnim.SetBool(DeathB, true);
             //playerAnim.SetInteger(DeathTypeINT, 1);
