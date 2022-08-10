@@ -46,7 +46,12 @@ public class GameManager : MonoBehaviour
 
     private void Setup()
     {
-        Instantiate(runners[0], Vector3.zero, runners[0].transform.rotation);
+        int runnerChoice = 0;
+        if (MenuManager.Instance != null)
+        {
+            runnerChoice = MenuManager.Instance.choice;
+        }
+        Instantiate(runners[runnerChoice], Vector3.zero, runners[runnerChoice].transform.rotation);
         gameState = GameState.Running;
         mainMusic = GetComponent<AudioSource>();
         mainMusic.Play();

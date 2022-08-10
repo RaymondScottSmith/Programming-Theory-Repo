@@ -59,7 +59,7 @@ public class Runner : MonoBehaviour
             isOnGround = true;
             //dirtParticle.Play();
         }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+        else if (collision.gameObject.CompareTag("Obstacle") && IsGameRunning())
         {
             //playerAudio.PlayOneShot(crashSound, 1.0f);
             //dirtParticle.Stop();

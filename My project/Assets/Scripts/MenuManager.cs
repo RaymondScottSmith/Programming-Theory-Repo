@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private TMP_Dropdown runnerChoice;
 
-    private int choice;
+    [SerializeField] private GameObject[] runnerTexts;
+
+    public int choice;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,17 +30,34 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        ShowOptions();
     }
 
-    private void ShowOptions()
+    public void ChangeRunner()
     {
-        
+        choice = runnerChoice.value;
+        Debug.Log("Change Runner");
+        foreach (GameObject runner in runnerTexts)
+        {
+            runner.SetActive(false);
+        }
+
+        runnerTexts[choice].SetActive(true);
     }
 
-    public void SetRunner()
+
+    public void StartGame()
     {
-        Debug.Log(choice + " chosen");
+        SceneManager.LoadScene(1);
+    }
+
+    public void ReturnToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     // Update is called once per frame
@@ -46,6 +66,7 @@ public class MenuManager : MonoBehaviour
         if (runnerChoice != null)
         {
             choice = runnerChoice.value;
+            
         }
         
     }
