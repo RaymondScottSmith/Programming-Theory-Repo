@@ -9,7 +9,7 @@ public class Farmer : Runner
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle") && isOnGround && !GameManager.Instance.isGameOver)
+        if (other.CompareTag("Obstacle") && isOnGround)
         {
             Jump();
         }

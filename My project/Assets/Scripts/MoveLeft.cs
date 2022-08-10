@@ -21,7 +21,7 @@ public class MoveLeft : MonoBehaviour
     void Update()
     {
         
-        if (GameManager.Instance.isGameOver == false)
+        if (GameManager.Instance.gameState != GameState.Win)
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed);
         }

@@ -27,7 +27,7 @@ public class ObstacleSpawner : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0) &&
-            !GameManager.Instance.isGameOver
+            GameManager.Instance.gameState == GameState.Running
             && !isWaiting)
         {
             StartCoroutine(SpawnObstacle());

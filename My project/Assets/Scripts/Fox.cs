@@ -9,8 +9,7 @@ public class Fox : Runner
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle") &&
-            !GameManager.Instance.isGameOver
+        if (other.CompareTag("Obstacle")
             && (isOnGround || numberOfJumps < 2))
         {
             numberOfJumps++;
@@ -20,7 +19,7 @@ public class Fox : Runner
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && !GameManager.Instance.isGameOver)
+        if (collision.gameObject.CompareTag("Ground") && IsGameRunning())
         {
             isOnGround = true;
             numberOfJumps = 0;
@@ -31,7 +30,7 @@ public class Fox : Runner
             //playerAudio.PlayOneShot(crashSound, 1.0f);
             //dirtParticle.Stop();
             //explosionParticle.Play();
-            GameManager.Instance.GameOver();
+            GameManager.Instance.GameOverWin();
             Destroy(gameObject);
             Debug.Log("Game Over!");
             //playerAnim.SetBool(DeathB, true);

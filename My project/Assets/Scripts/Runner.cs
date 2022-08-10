@@ -39,15 +39,22 @@ public class Runner : MonoBehaviour
     
     protected void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Obstacle") && isOnGround && !GameManager.Instance.isGameOver)
+        if (other.CompareTag("Obstacle")
+            && isOnGround)
         {
             Jump();
         }
     }
 
+    public bool IsGameRunning()
+    {
+        return GameManager.Instance.gameState == GameState.Running;
+    }
+
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && !GameManager.Instance.isGameOver)
+        if (collision.gameObject.CompareTag("Ground")
+            && IsGameRunning())
         {
             isOnGround = true;
             //dirtParticle.Play();
@@ -57,7 +64,7 @@ public class Runner : MonoBehaviour
             //playerAudio.PlayOneShot(crashSound, 1.0f);
             //dirtParticle.Stop();
             //explosionParticle.Play();
-            GameManager.Instance.GameOver();
+            GameManager.Instance.GameOverWin();
             Destroy(gameObject);
             //Debug.Log("Game Over!");
             //playerAnim.SetBool(DeathB, true);

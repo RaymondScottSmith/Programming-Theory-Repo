@@ -33,7 +33,7 @@ public class Buck : Runner
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && !GameManager.Instance.isGameOver)
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isFalling = false;
             StartCoroutine(JumpDelay());
@@ -49,7 +49,7 @@ public class Buck : Runner
                 Destroy(collision.gameObject);
                 return;
             }
-            GameManager.Instance.GameOver();
+            GameManager.Instance.GameOverWin();
             Destroy(gameObject);
             //playerAnim.SetBool(DeathB, true);
             //playerAnim.SetInteger(DeathTypeINT, 1);
