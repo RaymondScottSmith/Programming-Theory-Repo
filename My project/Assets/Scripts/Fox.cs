@@ -32,7 +32,6 @@ public class Fox : Runner
             //explosionParticle.Play();
             GameManager.Instance.GameOverWin();
             Destroy(gameObject);
-            Debug.Log("Game Over!");
             //playerAnim.SetBool(DeathB, true);
             //playerAnim.SetInteger(DeathTypeINT, 1);
         }
