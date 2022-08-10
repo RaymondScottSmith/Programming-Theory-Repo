@@ -21,6 +21,7 @@ public class SceneTransition : MonoBehaviour
         Application.Quit();
     }
     
+    // ABSTRACTION
     public void ChangeRunner()
     {
         choice = runnerChoice.value;

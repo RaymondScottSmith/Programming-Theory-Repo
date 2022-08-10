@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Buck : Runner
 {
+    //INHERITANCE
 
     private float m_JumpAgainDelay = 0.25f;
 
@@ -31,6 +32,7 @@ public class Buck : Runner
             isFalling = true;
     }
 
+    // POLYMORPHISM
     protected override void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Farmer : Runner
 {
-    
+    //INHERITANCE
     
     private void OnTriggerEnter(Collider other)
     {

@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI timerText;
 
+    // ENCAPSULATION
     public Vector3 baseGravity
     {
         get;

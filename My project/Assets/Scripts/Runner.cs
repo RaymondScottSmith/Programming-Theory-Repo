@@ -21,6 +21,7 @@ public class Runner : MonoBehaviour
 
     // Start is called before the first frame update
 
+    // ABSTRACTION
     protected void Jump()
     {
         runnerAudio.PlayOneShot(runnerAudio.clip);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fox : Runner
 {
+    //INHERITANCE
 
     private int numberOfJumps = 0;
 
@@ -17,6 +18,7 @@ public class Fox : Runner
         }
     }
 
+    // POLYMORPHISM
     protected override void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground") && IsGameRunning())
