@@ -31,6 +31,7 @@ public class Runner : MonoBehaviour
 
     void Start()
     {
+        Physics.gravity = GameManager.Instance.baseGravity;
         myRigidbody = GetComponent<Rigidbody>();
         runnerAnim = GetComponent<Animator>();
         runnerAudio = GetComponent<AudioSource>();

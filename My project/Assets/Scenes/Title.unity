@@ -779,6 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 616531946}
+  - component: {fileID: 616531947}
   - component: {fileID: 616531945}
   - component: {fileID: 616531944}
   - component: {fileID: 616531943}
@@ -871,6 +872,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &616531947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616531942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e905730685477940975a058bb18b97e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runnerChoice: {fileID: 1199364705}
+  runnerTexts:
+  - {fileID: 1883449255}
+  - {fileID: 291799101}
+  - {fileID: 1562503758}
 --- !u!1001 &898151597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,7 +1011,7 @@ PrefabInstance:
     - target: {fileID: 8622992527083013542, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2101863197}
+      objectReference: {fileID: 616531947}
     - target: {fileID: 8622992527083013542, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1004,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8622992527083013542, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
+      value: SceneTransition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8622992527083013542, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1021,7 +1039,7 @@ PrefabInstance:
     - target: {fileID: 9049395415137639626, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2101863197}
+      objectReference: {fileID: 616531947}
     - target: {fileID: 9049395415137639626, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1032,7 +1050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049395415137639626, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
+      value: SceneTransition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9049395415137639626, guid: 60367b11f31d21a42a5081c55186c0ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1222,8 +1240,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2101863197}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 616531947}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
         m_MethodName: ChangeRunner
         m_Mode: 1
         m_Arguments:
@@ -2482,11 +2500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940661d62d05b0f42a181faaf543c35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runnerChoice: {fileID: 1199364705}
-  runnerTexts:
-  - {fileID: 1883449255}
-  - {fileID: 291799101}
-  - {fileID: 1562503758}
   choice: 0
 --- !u!4 &2101863198
 Transform:

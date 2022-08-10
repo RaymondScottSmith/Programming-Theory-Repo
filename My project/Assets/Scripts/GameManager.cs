@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] runners;
 
     [SerializeField] private TextMeshProUGUI timerText;
+
+    public Vector3 baseGravity
+    {
+        get;
+        private set;
+    }
     
     // Start is called before the first frame update
     void Awake()
@@ -46,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void Setup()
     {
+        baseGravity = new Vector3(0f, -9.81f, 0f);
+        
         int runnerChoice = 0;
         if (MenuManager.Instance != null)
         {
@@ -62,20 +70,30 @@ public class GameManager : MonoBehaviour
 
     public void GameOverWin()
     {
-        mainMusic.Stop();
-        gameState = GameState.Win;
-        mainMusic.PlayOneShot(runnerCrashSound);
-        victoryScreen.SetActive(true);
+        if (gameState == GameState.Running)
+        {
+            gameState = GameState.Win;
+            mainMusic.Stop();
+            
+            mainMusic.PlayOneShot(runnerCrashSound);
+            victoryScreen.SetActive(true);
+        }
+        
     }
     public void GameOverLose()
     {
-        mainMusic.Stop();
-        gameState = GameState.Lose;
-        ufoExplosion.Play();
-        Destroy(FindObjectOfType<ObstacleSpawner>().gameObject);
-        mainMusic.PlayOneShot(ufoCrashSound);
+        if (gameState == GameState.Running)
+        {
+            gameState = GameState.Lose;
+            mainMusic.Stop();
+            
+            ufoExplosion.Play();
+            Destroy(FindObjectOfType<ObstacleSpawner>().gameObject);
+            mainMusic.PlayOneShot(ufoCrashSound);
         
-        loseScreen.SetActive(true);
+            loseScreen.SetActive(true);
+        }
+        
     }
 
     private IEnumerator RunningTime()
@@ -100,6 +118,13 @@ public class GameManager : MonoBehaviour
         timerText.text = timer.ToString();
             
     }
+
+    public void BackToTitle()
+    {
+        MenuManager.Instance.ReturnToTitle();
+    }
+
+    
 }
 
 public enum GameState
